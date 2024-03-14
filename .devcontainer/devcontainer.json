@@ -1,0 +1,4 @@
+{
+	"name": "dev",
+	"image": "docker.io/mdehling/ubuntu-dev:2024.02.05"
+}
