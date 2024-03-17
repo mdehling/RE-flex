@@ -455,7 +455,7 @@ class Matcher : public PatternMatcher<reflex::Pattern> {
   std::vector<int>  lap_; ///< lookahead position in input that heads a lookahead match (indexed by lookahead number)
   std::stack<Stops> stk_; ///< stack to push/pop stops
   FSM               fsm_; ///< local state for FSM code
-  bool              mrk_; ///< indent \i or dedent \j in pattern found: should check and update indent stops
+  bool              mrk_; ///< indent `\i` or dedent `\j` in pattern found: should check and update indent stops
   bool              anc_; ///< match is anchored, advance slowly to retry when searching
 };
 

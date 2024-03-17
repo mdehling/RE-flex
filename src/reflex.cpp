@@ -184,7 +184,7 @@ static const char *options_table[] = {
 /// - `j` for `\k` reflex undent anchor
 /// - `l` for `\l` ASCII lower case letter `[a-z]`
 /// - `n` for `\n` LF U+000A
-/// - `p` for `\p{C}` Unicode character classes, also implies Unicode \x{X}, \l, \u, \d, \s, \w
+/// - `p` for `\p{C}` Unicode character classes, also implies Unicode `\x{X}`, `\l`, `\u`, `\d`, `\s`, `\w`
 /// - `r` for `\r` CR U+000D
 /// - `s` for `\s` space (SP, TAB, LF, VT, FF, or CR)
 /// - `t` for `\t` TAB U+0009
@@ -194,8 +194,8 @@ static const char *options_table[] = {
 /// - `x` for `\xXX` 8-bit character encoding in hexadecimal
 /// - `y` for `\y` word boundary
 /// - `z` for `\z` end of input anchor
-/// - ``` for `\`` begin of input anchor
-/// - `'` for `\'` end of input anchor
+/// - \c \` for \c \\\` begin of input anchor
+/// - \c ' for \c \\' end of input anchor
 /// - `<` for `\<` left word boundary
 /// - `>` for `\>` right word boundary
 /// - `A` for `\A` begin of input anchor
@@ -215,19 +215,19 @@ static const char *options_table[] = {
 /// - `0` for `\0nnn` 8-bit character encoding in octal requires a leading `0`
 /// - '1' to '9' for backreferences (not applicable to lexer specifications)
 ///
-/// Note that 'p' is a special case to support Unicode-based matchers that
-/// natively support UTF8 patterns and Unicode classes \p{C}, \P{C}, \w, \W,
-/// \d, \D, \l, \L, \u, \U, \N, and \x{X}.  Basically, 'p' prevents conversion
-/// of Unicode patterns to UTF8.  This special case does not support {NAME}
-/// expansions in bracket lists such as [a-z||{upper}] and {lower}{+}{upper}
-/// used in lexer specifications.
+/// Note that `p` is a special case to support Unicode-based matchers that
+/// natively support UTF8 patterns and Unicode classes `\p{C}`, `\P{C}`, `\w`,
+/// `\W`, `\d`, `\D`, `\l`, `\L`, `\u`, `\U`, `\N`, and `\x{X}`.  Basically, `p`
+/// prevents conversion of Unicode patterns to UTF8.  This special case does not
+/// support `{NAME}` expansions in bracket lists such as `[a-z||{upper}]` and
+/// `{lower}{+}{upper}` used in lexer specifications.
 ///
 /// The optional `"?+"` specify lazy and possessive support:
 /// - `?` lazy quantifiers for repeats are supported
 /// - `+` possessive quantifiers for repeats are supported
 ///
 /// The optional `"."` (dot) specifies that dot matches any character except newline.
-/// A dot is implied by the presence of the 's' modifier, and can be omitted in that case.
+/// A dot is implied by the presence of the `s` modifier, and can be omitted in that case.
 static const Reflex::Library library_table[] = {
   {
     "reflex",
@@ -1915,7 +1915,7 @@ void Reflex::write_prelude()
     *out << "\n// --perf-report option requires a timer:\n#include <reflex/timer.h>\n";
 }
 
-/// Write Flex-compatible #defines to lex.yy.cpp
+/// Write Flex-compatible \#defines to lex.yy.cpp
 void Reflex::write_defines()
 {
   if (!out->good())

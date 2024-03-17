@@ -214,7 +214,7 @@ class Reflex
   Strings               patterns;      ///< regex patterns for each start condition
   Starts                inclusive;     ///< inclusive start conditions
   StringMap             definitions;   ///< map of {name} to regex
-  RulesMap              rules;         ///< <Start_i>regex_j action for Start i Rule j
+  RulesMap              rules;         ///< \<Start_i\>regex_j action for Start i Rule j
   Codes                 section_top;   ///< %top{ user code %} in section 1 container
   Codes                 section_class; ///< %class{ class code %} in section 1 container
   Codes                 section_init;  ///< %init{ init code %} in section 1 container

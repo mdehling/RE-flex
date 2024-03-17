@@ -159,7 +159,7 @@ class AbstractMatcher {
     bool A; ///< accept any/all (?^X) negative patterns as Const::REDO accept index codes
     bool N; ///< nullable, find may return empty match (N/A to scan, split, matches)
     bool W; ///< half-check for "whole words", check only left of \< and right of \> for non-word character
-    char T; ///< tab size, must be a power of 2, default is 8, for column count and indent \i, \j, and \k
+    char T; ///< tab size, must be a power of 2, default is 8, for column count and indent `\i`, `\j`, and `\k`
   };
   /// AbstractMatcher::Iterator class for scanning, searching, and splitting input character sequences.
   template<typename T> /// @tparam <T> AbstractMatcher or const AbstractMatcher
